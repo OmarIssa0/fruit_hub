@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fruit_hub/core/utils/app_color.dart';
 import 'package:fruit_hub/core/utils/app_images.dart';
+import 'package:fruit_hub/core/utils/app_text_styles.dart';
 import 'package:fruit_hub/features/on_boarding/presentation/views/widgets/page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
@@ -11,7 +14,7 @@ class OnBoardingPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: pageController,
-      children: const [
+      children: [
         PageViewItem(
           // isVisible:
           //     (pageController.hasClients ? pageController.page!.round() : 0) ==
@@ -24,13 +27,23 @@ class OnBoardingPageView extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("مرحبًا بك في "),
-              Text("HUB"),
-              Text("Fruit"),
+              const Text(
+                "مرحبًا بك في ",
+                style: TextStyles.bold23,
+              ),
+              Text(
+                " HUB",
+                style:
+                    TextStyles.bold23.copyWith(color: AppColor.secondaryColor),
+              ),
+              Text(
+                "Fruit",
+                style: TextStyles.bold23.copyWith(color: AppColor.primaryColor),
+              ),
             ],
           ),
         ),
-        PageViewItem(
+        const PageViewItem(
           // isVisible:
           //     (pageController.hasClients ? pageController.page!.round() : 1) !=
           //         0,
